@@ -1,0 +1,60 @@
+﻿<Window x:Class="TestApp.TestAppUI.View.MainView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:ee="http://schemas.microsoft.com/expression/2010/effects"
+        xmlns:behavior="clr-namespace:TestApp.BaseUI;assembly=BaseUI"
+        Title="Test App" Height="700" Width="1200"
+        WindowStartupLocation="CenterScreen" >
+
+    <Grid>
+        <!--<Grid.Effect>
+            <ee:EmbossedEffect />
+        </Grid.Effect>-->
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="20"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="150"></ColumnDefinition>
+            <ColumnDefinition Width="100"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="20"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+
+
+        <Button Grid.Column="1" Grid.Row="1" Width="120" Command="{Binding SearchEntitiesCommand}" HorizontalAlignment="Left" Content="Search"></Button>
+
+        <ProgressBar Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3" Value="{Binding ProgressValue}" Background="{Binding ProgressColor}" Foreground="{Binding ProgressColor}"></ProgressBar>
+        
+        <ListView Grid.Column="1" Grid.Row="3" Grid.RowSpan="5"
+                  ItemsSource="{Binding Products}" 
+                  SelectedItem="{Binding SelectedProduct}" 
+                  DisplayMemberPath="Description"
+                  behavior:MouseDoubleClick.Command="{Binding OpenProductCommand}" />
+
+        <ListView Grid.Column="3" Grid.Row="3" Grid.RowSpan="5"
+                  ItemsSource="{Binding Employees}" 
+                  SelectedItem="{Binding SelectedEmployee}"
+                  behavior:MouseDoubleClick.Command="{Binding OpenEmployeeCommand}" />
+        
+       
+        <Button Grid.Column="4" Grid.Row="3" Content="Covariance" Command="{Binding OpenCovarianceCommand}" />
+        <Button Grid.Column="4" Grid.Row="4" Content="Anonymous methods"  Command="{Binding AnonymousMethodsCommand}" />
+        <Button Grid.Column="4" Grid.Row="5" Content="Test" Command="{Binding TestCommand}" />
+        <Button Grid.Column="4" Grid.Row="6" Content="empty" />
+
+        <Button Grid.Column="1" Grid.Row="8" Content="Product" Command="{Binding OpenProductCommand}"/>
+        <Button Grid.Column="3" Grid.Row="8" Content="Employee" Command="{Binding OpenEmployeeCommand}"/>
+    </Grid>
+</Window>
