@@ -367,6 +367,7 @@ namespace TestApp.TestAppUI.ViewModel
             //Products.Add(EntityCommunicator.GetById<ProductEntity>(4));
             //ProgressValue = 50;
             //OnPropertyChange(() => Products);
+            //test
 
             ProgressValue = 5;
 
